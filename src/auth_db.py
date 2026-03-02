@@ -8,9 +8,10 @@ import os
 import secrets
 from datetime import datetime, timedelta
 from contextlib import contextmanager
+from src.db_utils import get_database_path
 
 # Database file location - stored in data/ for Docker volume persistence
-DB_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'users.db')
+DB_FILE = get_database_path('users.db')
 
 @contextmanager
 def get_db():

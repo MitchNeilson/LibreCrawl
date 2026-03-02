@@ -8,10 +8,10 @@ import json
 import time
 from datetime import datetime
 from contextlib import contextmanager
+from src.db_utils import get_database_path
 
 # Database file location (same as auth database) - stored in data/ for Docker volume persistence
-import os
-DB_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'users.db')
+DB_FILE = get_database_path('crawls.db')
 
 @contextmanager
 def get_db():
